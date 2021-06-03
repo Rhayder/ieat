@@ -1,0 +1,21 @@
+
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+development:
+  <<: *default
+  database: postgres  
+  username: 'postgres'
+  password: 'root'
+  ost: localhost
+  port: 5432
+
+production:
+  <<: *default
+  database: ieat_production
+  username: ieat
+  password: <%= ENV['IEAT_DATABASE_PASSWORD'] %>  
+ 
